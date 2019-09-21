@@ -6,6 +6,8 @@ import qualified Data.Text as T
 import Text.Blaze.Html5 as H hiding (main)
 import qualified Text.Blaze.Html5.Attributes as A
 import Data.Maybe
+import Db
+import Control.Monad.Trans
 
 main :: IO ()
 main = run 3000 app
@@ -23,6 +25,7 @@ helloHandler = do
 
 todoHandler :: Handler H.Html
 todoHandler = do
+  c <- liftIO getConnection
   return . H.docTypeHtml $ do
     H.head $ do
       title "Haskell TODO"
@@ -35,4 +38,6 @@ todoHandler = do
 addTodoHandler :: Handler T.Text
 addTodoHandler = do
   todo <- fromMaybe "" <$> getQuery "todo"
+  c <- liftIO getConnection
+  liftIO $ saveTodo c (Todo todo False)
   return $ "Added" `T.append` " " `T.append` todo

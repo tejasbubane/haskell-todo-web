@@ -11,6 +11,13 @@ packages:
       sha256: 51d4bf283e1d9ae37e43cd387b112919e45f2fc088f57cbd33c8bad9b0c179f1
   original:
     hackage: firefly-0.2.1.0
+- completed:
+    hackage: postgresql-simple-0.6.2@sha256:72114f01c546878311ce1d8c7a0e7497bc589e30d995bf4a48ceb99a8ee48ae6,5333
+    pantry-tree:
+      size: 4055
+      sha256: 5fdaed800dee53a8d2a519d5ae04092ba18bf08d81eb817219fb8132bb918ec5
+  original:
+    hackage: postgresql-simple-0.6.2
 snapshots:
 - completed:
     size: 491155
